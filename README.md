@@ -31,7 +31,7 @@
 
 ### 三 、下载项目，在eclipse中调用OpenCV库
 
-[java项目代码](https://github.com/ArvinWoo/GithubAvatarGenerator) 
+[java项目代码](https://github.com/ArvinWoo/AvatarGenerator) 
 Git 下载项目后，导入Eclipse。
 
 ### 四、导入项目后，进行OpenCV的配置
