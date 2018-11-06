@@ -2,41 +2,48 @@
 使用`Java`+`OpenCV3`制作，用于生成萌萌哒的`GitHub`默认头像，就像这种:
 
 <img src="./img/1.png" width="200" height="200"/>
+### 前言
+最近看到一些头像 觉得 挺不错而且 蛮有规律的，特此找到一些资源自己测试了一下。头像效果图。
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20181106172109606.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3NTk1OTQ2,size_16,color_FFFFFF,t_70)
+### 一、通过Eclipse使用OpenCV（Java）
+>从2.4.4版本起OpenCV支持Java，本教程会讲解如何使用Eclipse做OpenCV Java开发在Windows/Linux下的环境搭建。因此您能享受垃圾回收的益处，非常refactorable（重命名变量，提取方法和诸如此类的东西）,现代编程语言可以让你编写代码很轻松，还能少犯错误。现在我们开始吧。
 
-这个程序的功能就是随机批量生成一些这样的萌萌哒头像，不得不说`GitHub`的设计思路真的不错
+### 二、下载并安装OpenCV（OpenCv2.4版本以上）
+**下载地址：**[OpenCV (Open Source Computer Vision Library) ](https://opencv.org/releases.html)
+1.2 解压与安装
+下载完后得到文件 opencv-[X版本].exe，双击后会提示解压到某个地方，比如C:\Users\ArvinWoo\Desktop，双击即可加压。
+![双击即可解压](https://img-blog.csdnimg.cn/20181106170130542.png)
+（因为OpenCV项目文件打包的时候，根目录就是opencv，所以我们不需要额外的新建一个名为opencv的文件夹，然后再解压，那是多此一举的事情）然后点击Extract按钮
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20181106170052826.png)
+打开解压目录opencv
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20181106170240713.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3NTk1OTQ2,size_16,color_FFFFFF,t_70)
 
-# 环境配置
-在运行前，需要先配置`OpenCV3`的环境，官网的下载地址在这: [OpenCV - Releases](https://opencv.org/releases.html)，这个地址中有各个版本的`OpenCV`提供下载，选择适合自己的包下载
+### 三 、下载项目，在eclipse中调用OpenCV库
 
-下载完成之后解压或者安装到某一个目录，比如我解压到的位置为: `C:\Lib\opencv`，可以看到目录结构如下:
+[java项目代码](https://github.com/ArvinWoo/GithubAvatarGenerator) 
+Git 下载项目后，导入Eclipse。
 
-![opencv-path](./img/2.png)
+### 四、导入项目后，进行OpenCV的配置
+启动Eclipse并选择Window->Preferences菜单。 
+![在这里插入图片描述](https://img-blog.csdnimg.cn/2018110617051749.png)
 
-接下来需要将`OpenCV`添加到项目依赖中来，这里以`IDEA`为例，先在`IDEA`中导入这个项目，导入完成之后点击`Project Structure`按钮，进入`Libraries`面板，如下:
+2、导航到Java->Build Path ->User Libraries并点击New ….
 
-![project-structure-libraries](./img/3.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20181106170540388.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3NTk1OTQ2,size_16,color_FFFFFF,t_70)
 
-添加`Java`依赖，选择到刚刚安装`OpenCV3`的目录下的`/build/java/opencv-xxx.jar`，并添加，可以看到现在依赖如下:
+3、输入名称例如OpenCV-[X版本]，作为你新库的名字,现在选择新建的用户库，并且点击Add External JARs… 找到刚才的OpenCV安装目录：C:\Users\ArvinWoo\Desktop\ **opencv\build\java** ，选择该目录下的包：opencv-[X版本].jar
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20181106170716178.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20181106170805536.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3NTk1OTQ2,size_16,color_FFFFFF,t_70)
 
-![project-structure-libraries-new](./img/4.png)
+添加完jar包后，展开OpenCV-x.x.x并选择Native library location并且点击**Edit**…
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20181106170951877.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3NTk1OTQ2,size_16,color_FFFFFF,t_70)
 
-另外，为了让`IDEA`能够找到我们的源文件，需要将项目下的`/src`文件设为源文件夹，进入`Modules`面板然后将`/src`设置为源文件夹:
+选择 External Folder（外部目录），浏览到需要选择的目录，Windows为C:\Users\ArvinWoo\Desktop\ **opencv\build\java\x64** ，
+**如果你使用的是32-bit操作系统需要选择x86目录替换x64.。
+Linux为/home/kingroc/source/opencv-3.1.0/build/lib。** 
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20181106171113522.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3NTk1OTQ2,size_16,color_FFFFFF,t_70)
 
-![project-structure-modules](./img/5.png)
+附上项目测试
 
-同样的，编译、输出目录也需要调整，在`Project`面板中把`compiler ouput`一栏的目录改成`你的项目所在的目录 + \out`:
-
-![project-structure-project](./img/6.png)
-
-到了这一步点击编译运行其实是还不能运行的，因为程序无法找到`OpenCV3`的动态链接库:
-
-![error](./img/7.png)
-
-这时候编辑运行配置，在`VM-Options`一栏上加上两个`path`即可，一个是`OpenCV3 Java`的动态链接库目录，一个是`OpenCV3`二进制文件目录，按照你的实际情况填写就行了
-
-![run-configurations](./img/8.png)
-
-到这里环境配置就算结束了
-
-# 运行
-编译运行即可，看看是不是多了20张萌萌哒的`GitHub`默认头像了?生成的配置你完全可以在代码里面改，我懒得做配置文件了233，溜了溜了~
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20181106171519970.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3NTk1OTQ2,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20181106171812851.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3NTk1OTQ2,size_16,color_FFFFFF,t_70)
