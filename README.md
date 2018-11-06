@@ -13,13 +13,21 @@
 
 ### 二、下载并安装OpenCV（OpenCv2.4版本以上）
 **下载地址：**[OpenCV (Open Source Computer Vision Library) ](https://opencv.org/releases.html)
+
 1.2 解压与安装
+
 下载完后得到文件 opencv-[X版本].exe，双击后会提示解压到某个地方，比如C:\Users\ArvinWoo\Desktop，双击即可加压。
+
 ![双击即可解压](https://img-blog.csdnimg.cn/20181106170130542.png)
+
 （因为OpenCV项目文件打包的时候，根目录就是opencv，所以我们不需要额外的新建一个名为opencv的文件夹，然后再解压，那是多此一举的事情）然后点击Extract按钮
+
 ![](https://img-blog.csdnimg.cn/20181106170052826.png)
+
 打开解压目录opencv
+
 ![](https://img-blog.csdnimg.cn/20181106170240713.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3NTk1OTQ2,size_16,color_FFFFFF,t_70)
+
 
 ### 三 、下载项目，在eclipse中调用OpenCV库
 
@@ -27,7 +35,9 @@
 Git 下载项目后，导入Eclipse。
 
 ### 四、导入项目后，进行OpenCV的配置
+
 启动Eclipse并选择Window->Preferences菜单。 
+
 ![](https://img-blog.csdnimg.cn/2018110617051749.png)
 
 2、导航到Java->Build Path ->User Libraries并点击New ….
@@ -35,18 +45,24 @@ Git 下载项目后，导入Eclipse。
 ![](https://img-blog.csdnimg.cn/20181106170540388.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3NTk1OTQ2,size_16,color_FFFFFF,t_70)
 
 3、输入名称例如OpenCV-[X版本]，作为你新库的名字,现在选择新建的用户库，并且点击Add External JARs… 找到刚才的OpenCV安装目录：C:\Users\ArvinWoo\Desktop\ **opencv\build\java** ，选择该目录下的包：opencv-[X版本].jar
+
 ![](https://img-blog.csdnimg.cn/20181106170716178.png)
+
 ![](https://img-blog.csdnimg.cn/20181106170805536.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3NTk1OTQ2,size_16,color_FFFFFF,t_70)
 
 添加完jar包后，展开OpenCV-x.x.x并选择Native library location并且点击**Edit**…
+
 ![](https://img-blog.csdnimg.cn/20181106170951877.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3NTk1OTQ2,size_16,color_FFFFFF,t_70)
 
 选择 External Folder（外部目录），浏览到需要选择的目录，Windows为C:\Users\ArvinWoo\Desktop\ **opencv\build\java\x64** ，
+
 **如果你使用的是32-bit操作系统需要选择x86目录替换x64.。
 Linux为/home/kingroc/source/opencv-3.1.0/build/lib。** 
+
 ![](https://img-blog.csdnimg.cn/20181106171113522.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3NTk1OTQ2,size_16,color_FFFFFF,t_70)
 
 附上项目测试
 
 ![](https://img-blog.csdnimg.cn/20181106171519970.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3NTk1OTQ2,size_16,color_FFFFFF,t_70)
+
 ![](https://img-blog.csdnimg.cn/20181106171812851.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3NTk1OTQ2,size_16,color_FFFFFF,t_70)
